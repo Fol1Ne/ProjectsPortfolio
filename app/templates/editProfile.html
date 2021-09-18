@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="stylesheet" href="/static/styles/profileStyle.css">
+{% endblock %}
+
+{% block app_content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main_info greyBlock">
+                <span><img src="{{ avatar }}"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="side_menu greyBlock">
+                <p>Account Info</p>
+                <hr>
+                <ul>
+                    <li><a href="/editProfile">Edit profile</a></li>
+                    <li><a href="#">Link2</a></li>
+                    <li><a href="#">Link3</a></li>
+                    <li><a href="#">Link4</a></li>
+                    <li><a href="#">Link5</a></li>
+                    <li><a href="#">Link6</a></li>
+                    <li><a href="#">Link7</a></li>
+                    <li><a href="#">Link8</a></li>
+                    <li><a href="#">Link9</a></li>
+                    <li><a href="#">Link10</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="central_menu greyBlock">
+                <p>Edit Menu</p>
+                <hr>
+                <img src="{{ avatar }}">
+
+                {{ wtf.quick_form(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

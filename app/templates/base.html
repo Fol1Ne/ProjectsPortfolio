@@ -1,0 +1,35 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/styles/style.css">
+{% endblock %}
+
+{% block navbar %}
+    <header>
+        <nav class="navbar-menu">
+            <ul class="navbar-ul">
+                <li class="navbar-li"><a href="/">Home</a></li>
+                {% if current_user.is_anonymous %}
+                <li class="navbar-li"><a href="/login">Log In</a></li>
+                    <li class="navbar-li"><a href="/registration">Registration</a></li>
+                {% else %}
+                    <li class="navbar-li"><a href="/profile"><img src="{{ avatar }}"></a></li>
+                    <li class="navbar-li"><a href="/logout">Log Out</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <main class="container">
+        {% block app_content %}
+
+        {% endblock %}
+    </main>
+{% endblock %}
